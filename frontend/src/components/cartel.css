@@ -1,0 +1,170 @@
+/* A4 horizontal - contenedor externo */
+.cartel-wrapper {
+  width: 100%;
+  height: 100%;
+  background: white;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Caja del cartel */
+.cartel-box {
+  width: 100%;
+  height: 100%;
+  border: 2px solid black;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px;
+}
+
+/* DESCRIPCIÓN */
+.cartel-title {
+  font-size: 55px;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 150px;
+}
+
+/* ---- CONTROL EXTRA ---- */
+.pos-descripcion {
+  /* ejemplos */
+  margin-top: 100px;
+  /* text-align: left; */
+}
+
+.cartel-variedad {
+
+}
+
+.pos-cartel-variedad {
+  text-align: center;
+  font-size: 35px;
+}
+
+
+/* CENTRO (OFERTA) */
+.cartel-middle {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.oferta-center {
+  text-align: center;
+}
+
+/* ---- CONTROL EXTRA ---- */
+.pos-oferta-wrapper {
+  margin-top: 60px;
+  /* margin-bottom: 40px; */
+  /* transform: translateY(-20px); */
+}
+
+.label-oferta {
+  font-size: 26px;
+  font-weight: bold;
+  display: block;
+}
+
+/* ---- CONTROL EXTRA ---- */
+.pos-label-oferta {
+  /* letter-spacing: 3px; */
+  /* margin-bottom: 20px; */
+}
+
+.value-oferta {
+  font-size: 180px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+/* ---- CONTROL EXTRA ---- */
+.pos-value-oferta {
+  /* font-size: 120px; */
+  /* margin-top: 10px; */
+}
+
+
+
+/* PIE INFERIOR */
+.cartel-footer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 140px;
+}
+
+.footer-block {
+  width: 33%;
+}
+
+/* ---- CONTROL EXTRA PARA LAS 3 COLUMNAS ---- */
+.pos-vigencia-wrapper {
+  /* padding-left: 20px; */
+
+}
+
+.pos-sucursal-wrapper {
+  /* transform: translateX(-20px); */
+}
+
+.pos-gramaje-wrapper {
+  /* padding-right: 30px; */
+}
+
+.left-block   { text-align: left; }
+.center-block { text-align: center; }
+.right-block  { text-align: right; }
+
+
+
+/* ---- CONTROL EXTRA ---- */
+.pos-label-vigencia  { /* margin-bottom: 6px; */ }
+.pos-label-sucursal  { /* margin-bottom: 6px; */ }
+.pos-label-gramaje   { /* margin-bottom: 6px; */ }
+
+
+/* Valores */
+.value-vigencia,
+.value-sucursales,
+.value-gramaje {
+  font-size: 20px;
+}
+
+/* ---- CONTROL EXTRA ---- */
+.pos-value-vigencia  { /* font-size: 32px; */ }
+.pos-value-sucursal  { /* font-size: 32px; */ }
+.pos-value-gramaje   { /* font-size: 32px; */ }
+
+
+
+/* IMPRESIÓN */
+/* IMPRESIÓN HORIZONTAL A4 */
+@media print {
+  @page {
+    size: A4 landscape !important;
+    margin: 0;
+  }
+
+  html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .cartel-wrapper {
+    padding: 0 !important;
+  }
+
+  .cartel-box {
+    border: none !important;
+    padding: 40px !important;
+    box-sizing: border-box;
+  }
+}

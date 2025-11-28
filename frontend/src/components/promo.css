@@ -1,0 +1,130 @@
+/* -----------------------------------------------------------
+   A4 CONTENEDOR EXTERNO
+----------------------------------------------------------- */
+.promo-wrapper {
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background: white;
+  box-sizing: border-box;
+}
+
+/* -----------------------------------------------------------
+   ETIQUETA 12×4 CM
+----------------------------------------------------------- */
+.promo-box {
+  width: 12cm;
+  height: 4cm;
+  border: 2px solid black;
+  padding: 3px;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Clase de edición libre */
+.pos-promo-box {
+ }
+
+/* -----------------------------------------------------------
+   FILA 1 — DESCRIPCIÓN
+----------------------------------------------------------- */
+.promo-title {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  
+}
+
+.pos-promo-title { }
+
+/* -----------------------------------------------------------
+   FILA 2 — VARIEDAD
+----------------------------------------------------------- */
+.pos-promo-variedad {
+    text-align: center;
+    font-size: 12px;
+}
+/* -----------------------------------------------------------
+   FILA 3 — OFERTA
+----------------------------------------------------------- */
+.promo-oferta {
+  text-align: center;
+  font-size: 43px;
+  font-weight: bold;
+}
+
+.pos-promo-oferta { }
+
+.promo-oferta-label {
+  font-size: 10px;
+  font-weight: bold;
+  display: block;
+}
+
+.promo-oferta-value {
+  font-size: 65px;
+  font-weight: bold;
+}
+
+.pos-label-oferta { }
+.pos-value-oferta { }
+
+/* -----------------------------------------------------------
+   FILA 3 — VIGENCIA / SUCURSAL / GRAMAJE
+----------------------------------------------------------- */
+.promo-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pos-promo-foot { }
+
+.promo-foot-item {
+  display: flex;
+  flex-direction: row;
+}
+
+.promo-foot-item.left   { text-align: left; }
+.promo-foot-item.center { text-align: center; }
+.promo-foot-item.right  { text-align: right; }
+
+.promo-foot-item label {
+  font-size: 8px;
+  font-weight: bold;
+}
+
+.promo-foot-item {
+  font-size: 12px;
+}
+
+/* Edición avanzada */
+.pos-item-vigencia  { }
+.pos-item-sucursal  { }
+.pos-item-gramaje   { }
+.pos-label-vigencia { }
+.pos-label-sucursal { }
+.pos-label-gramaje  { }
+.pos-value-vigencia { }
+.pos-value-sucursal { }
+.pos-value-gramaje  { }
+
+/* -----------------------------------------------------------
+   IMPRESIÓN
+----------------------------------------------------------- */
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  .promo-wrapper {
+    padding: 30px;
+  }
+}
