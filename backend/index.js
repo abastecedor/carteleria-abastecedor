@@ -5,6 +5,7 @@ import "dotenv/config";
 import { google } from "googleapis";
 
 console.log("ENV:", process.env.GOOGLE_CREDENTIALS?.slice(0, 50));
+console.log(">>> SPREADSHEET_ID DESDE RENDER:", process.env.SPREADSHEET_ID);
 
 const app = express();
 app.use(cors());
