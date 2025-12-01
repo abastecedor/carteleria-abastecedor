@@ -10,7 +10,7 @@ export default function PrintPage() {
 
   useEffect(() => {
     const load = async () => {
-      const res = await axios.get("http://localhost:3001/products");
+      const res = await axios.get("https://carteleria-abastecedor.onrender.com");
       const encontrado = res.data.find((p) => p.rowIndex === Number(id));
       setProducto(encontrado);
 
