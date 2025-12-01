@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: carteleria-backend
+    env: node
+    rootDirectory: backend
+    buildCommand: "npm install"
+    startCommand: "node index.js"
+    envVars:
+      - key: GOOGLE_SHEET_ID
+        sync: false
+      - key: GOOGLE_APPLICATION_CREDENTIALS
+        value: "/etc/secrets/service-account.json"
+      - key: NODE_VERSION
+        value: "18"
+    secretFiles:
+      - key: service-account.json
+        path: service-account.json
