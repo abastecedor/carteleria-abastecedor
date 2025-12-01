@@ -38,7 +38,7 @@ export default function ProductList() {
       return;
     }
 
-    await axios.put("http://localhost:3001/products/update", {
+    await axios.put("https://carteleria-abastecedor.onrender.com/products/update", {
       rowIndex: editingRow.rowIndex,
       updatedData: editingRow,
       editorSucursal,
