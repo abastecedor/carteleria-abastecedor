@@ -4,6 +4,8 @@ import cors from "cors";
 import "dotenv/config";
 import { google } from "googleapis";
 
+console.log("ENV:", process.env.GOOGLE_CREDENTIALS?.slice(0, 50));
+
 const app = express();
 app.use(cors());
 app.use(express.json());
