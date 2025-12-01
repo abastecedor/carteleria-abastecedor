@@ -15,7 +15,7 @@ export default function ProductList() {
   const [editorSucursal, setEditorSucursal] = useState("");
 
   const load = async () => {
-    const res = await axios.get("https://carteleria-abastecedor.onrender.com");
+    const res = await axios.get("https://carteleria-abastecedor.onrender.com/products");
     setProducts(res.data);
   };
 

@@ -9,7 +9,7 @@ export default function PromoPage() {
   const [producto, setProducto] = useState(null);
 
   useEffect(() => {
-    axios.get("https://carteleria-abastecedor.onrender.com").then((res) => {
+    axios.get("https://carteleria-abastecedor.onrender.com/products").then((res) => {
       const encontrado = res.data.find((p) => p.rowIndex === Number(id));
       setProducto(encontrado);
     });

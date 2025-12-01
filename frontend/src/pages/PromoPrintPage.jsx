@@ -9,7 +9,7 @@ export default function PromoPrintPage() {
 
   useEffect(() => {
     const load = async () => {
-      const res = await axios.get("https://carteleria-abastecedor.onrender.com");
+      const res = await axios.get("https://carteleria-abastecedor.onrender.com/products");
       const found = res.data.find(p => p.rowIndex == id);
       setProducto(found);
 
