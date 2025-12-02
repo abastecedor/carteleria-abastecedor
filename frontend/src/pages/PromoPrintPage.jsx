@@ -2,8 +2,12 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import PromoEtiqueta from "../components/PromoEtiqueta";
+import { API_URL } from "../api";
 
-const API_URL = "https://carteleria-backend-f9j8rwo8n-abastecedors-projects.vercel.app";
+
+const res = await axios.get(`${API_URL}/products`);
+
+
 
 export default function PromoPrintPage() {
   const { id } = useParams();

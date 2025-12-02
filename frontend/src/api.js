@@ -1,9 +1,2 @@
-// src/api.js
-import axios from "axios";
+export const API_URL = "https://carteleria-backend-f9j8rwo8n-abastecedors-projects.vercel.app";
 
-const API_URL = "http://localhost:3001";
-
-export const getProducts = async () => {
-  const res = await axios.get(`${API_URL}/products`);
-  return res.data;
-};

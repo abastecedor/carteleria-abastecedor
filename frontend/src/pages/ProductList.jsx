@@ -2,8 +2,11 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "../App.css"; // 🔥 Importante
+import { API_URL } from "../api";
 
-const API_URL = "https://carteleria-backend-f9j8rwo8n-abastecedors-projects.vercel.app";
+
+const res = await axios.get(`${API_URL}/products`);
+
 
 const SUCURSALES = [
   "Martin Fierro", "Udaondo", "Irusta", "Gorriti",
