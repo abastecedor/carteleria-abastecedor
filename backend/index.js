@@ -6,6 +6,9 @@ import { google } from "googleapis";
 
 console.log("ENV:", process.env.GOOGLE_CREDENTIALS?.slice(0, 50));
 console.log(">>> SPREADSHEET_ID DESDE RENDER:", process.env.SPREADSHEET_ID);
+console.log("Todas las env vars:", Object.keys(process.env));
+console.log("GOOGLE_SERVICE_ACCOUNT existe?:", "GOOGLE_SERVICE_ACCOUNT" in process.env);
+console.log("Valor env:", process.env.GOOGLE_SERVICE_ACCOUNT);
 
 const app = express();
 app.use(cors());
