@@ -4,20 +4,27 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import "../components/cartel.css";
 
+const API_URL = "https://carteleria-backend-f9j8rwo8n-abastecedors-projects.vercel.app";
+
 export default function PrintPage() {
   const { id } = useParams();
   const [producto, setProducto] = useState(null);
 
   useEffect(() => {
     const load = async () => {
-      const res = await axios.get("https://carteleria-abastecedor.onrender.com/products");
-      const encontrado = res.data.find((p) => p.rowIndex === Number(id));
-      setProducto(encontrado);
+      try {
+        const res = await axios.get(`${API_URL}/products`);
+        const encontrado = res.data.find((p) => p.rowIndex === Number(id));
+        setProducto(encontrado);
 
-      // Automáticamente imprimir cuando cargó
-      setTimeout(() => {
-        window.print();
-      }, 500);
+        // Automáticamente imprimir cuando cargó
+        setTimeout(() => {
+          window.print();
+        }, 500);
+
+      } catch (error) {
+        console.error("Error cargando producto:", error);
+      }
     };
 
     load();

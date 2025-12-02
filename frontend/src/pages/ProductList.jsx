@@ -1,7 +1,9 @@
 // src/pages/ProductList.jsx
 import { useEffect, useState } from "react";
 import axios from "axios";
-import "../App.css"; // 🔥 Asegurate de importar este CSS
+import "../App.css"; // 🔥 Importante
+
+const API_URL = "https://carteleria-backend-f9j8rwo8n-abastecedors-projects.vercel.app";
 
 const SUCURSALES = [
   "Martin Fierro", "Udaondo", "Irusta", "Gorriti",
@@ -15,7 +17,7 @@ export default function ProductList() {
   const [editorSucursal, setEditorSucursal] = useState("");
 
   const load = async () => {
-    const res = await axios.get("https://carteleria-abastecedor.onrender.com/products");
+    const res = await axios.get(`${API_URL}/products`);
     setProducts(res.data);
   };
 
@@ -38,7 +40,7 @@ export default function ProductList() {
       return;
     }
 
-    await axios.put("https://carteleria-abastecedor.onrender.com/products/update", {
+    await axios.put(`${API_URL}/products/update`, {
       rowIndex: editingRow.rowIndex,
       updatedData: editingRow,
       editorSucursal,
