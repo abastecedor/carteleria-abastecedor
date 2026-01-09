@@ -4,127 +4,153 @@
 .promo-wrapper {
   width: 100%;
   height: 100%;
-  padding: 40px;
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   background: white;
   box-sizing: border-box;
+  padding: 0;
 }
 
 /* -----------------------------------------------------------
-   ETIQUETA 12×4 CM
+   CAJA PRINCIPAL A4
+----------------------------------------------------------- */
+/* -----------------------------------------------------------
+   CAJA PRINCIPAL A4 - LANDSCAPE
 ----------------------------------------------------------- */
 .promo-box {
-  width: 12cm;
-  height: 4cm;
-  border: 2px solid black;
-  padding: 3px;
+  width: 297mm;
+  height: 210mm;
+  padding: 15mm;
+  /* Márgenes internos reducidos un poco para landscape */
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: 'Arial Black', Arial, sans-serif;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
+  background: white;
+  color: black;
 }
 
-/* Clase de edición libre */
-.pos-promo-box {
- }
-
 /* -----------------------------------------------------------
-   FILA 1 — DESCRIPCIÓN
+   HEADER - DESCRIPCIÓN
 ----------------------------------------------------------- */
+/* Título gigante promocional (opcional) */
+.promo-super-title {
+  text-align: center;
+  font-size: 80px;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-top: 90px;
+  margin-bottom: 0px;
+  line-height: 1;
+}
+
+.promo-header {
+  width: 100%;
+  text-align: center;
+}
+
 .promo-title {
-  font-size: 16px;
+  font-size: 55px;
+  /* Un poco más chico para que entre en 210mm de alto */
+  line-height: 1;
+  text-transform: uppercase;
+  margin-top: 120px;
+  /* Margen ESTANDAR */
+  padding: 0;
   font-weight: bold;
-  text-align: center;
-  
 }
 
-.pos-promo-title { }
+/* Cuando hay promo, reducimos el margen */
+.promo-box--with-promo .promo-title {
+  margin-top: 20px;
+}
+
+.promo-variedad {
+  font-size: 28px;
+  margin-top: 5px;
+  font-weight: normal;
+  text-transform: uppercase;
+}
 
 /* -----------------------------------------------------------
-   FILA 2 — VARIEDAD
+   BODY - OFERTA GIGANTE
 ----------------------------------------------------------- */
-.pos-promo-variedad {
-    text-align: center;
-    font-size: 12px;
+.promo-body {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 100px;
 }
-/* -----------------------------------------------------------
-   FILA 3 — OFERTA
------------------------------------------------------------ */
+
 .promo-oferta {
-  text-align: center;
-  font-size: 43px;
-  font-weight: bold;
+  font-size: 160px;
+  /* Ajustado para altura landscape */
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -2px;
 }
-
-.pos-promo-oferta { }
-
-.promo-oferta-label {
-  font-size: 10px;
-  font-weight: bold;
-  display: block;
-}
-
-.promo-oferta-value {
-  font-size: 65px;
-  font-weight: bold;
-}
-
-.pos-label-oferta { }
-.pos-value-oferta { }
 
 /* -----------------------------------------------------------
-   FILA 3 — VIGENCIA / SUCURSAL / GRAMAJE
+   FOOTER - DETALLES
 ----------------------------------------------------------- */
 .promo-footer {
+  width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
+  padding-top: 8px;
+  margin-bottom: 100px;
 }
-
-.pos-promo-foot { }
 
 .promo-foot-item {
-  display: flex;
-  flex-direction: row;
-}
-
-.promo-foot-item.left   { text-align: left; }
-.promo-foot-item.center { text-align: center; }
-.promo-foot-item.right  { text-align: right; }
-
-.promo-foot-item label {
-  font-size: 8px;
+  font-size: 20px;
   font-weight: bold;
+  flex: 1;
 }
 
-.promo-foot-item {
-  font-size: 12px;
+.text-left {
+  text-align: left;
 }
 
-/* Edición avanzada */
-.pos-item-vigencia  { }
-.pos-item-sucursal  { }
-.pos-item-gramaje   { }
-.pos-label-vigencia { }
-.pos-label-sucursal { }
-.pos-label-gramaje  { }
-.pos-value-vigencia { }
-.pos-value-sucursal { }
-.pos-value-gramaje  { }
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: normal;
+  display: block;
+  margin-bottom: 3px;
+}
 
 /* -----------------------------------------------------------
    IMPRESIÓN
 ----------------------------------------------------------- */
 @media print {
   @page {
-    size: A4;
+    size: A4 landscape;
     margin: 0;
   }
 
+  body {
+    margin: 0;
+    padding: 0;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
   .promo-wrapper {
-    padding: 30px;
+    width: 297mm;
+    height: 210mm;
   }
 }

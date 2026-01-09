@@ -1,55 +1,54 @@
-// src/pages/PromoPage.jsx
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import axios from "axios";
-import "../components/promo.css";
+// src/components/PromoEtiqueta.jsx
+import "./promo.css";
 
-
-const API_URL = "https://carteleria-backend-f9j8rwo8n-abastecedors-projects.vercel.app";
-
-export default function PromoPage() {
-  const { id } = useParams();
-  const [producto, setProducto] = useState(null);
-
-  useEffect(() => {
-    axios.get(`${API_URL}/products`)
-      .then((res) => {
-        const encontrado = res.data.find((p) => p.rowIndex === Number(id));
-        setProducto(encontrado);
-      })
-      .catch((err) => {
-        console.error("Error al obtener productos:", err);
-      });
-  }, [id]);
-
+export default function PromoEtiqueta({ producto }) {
   if (!producto) return <p>Cargando...</p>;
+
+  // Normalización de datos (Soporte para minúsculas del CSV y mayúsculas de Firestore antiguo)
+  const descripcion = producto.DESCRIPCION || producto.descripcion || "";
+  const variedad = producto.VARIEDAD || producto.variedad || "";
+  const oferta = producto.OFERTA || producto.oferta || "";
+  const vigencia = producto.VIGENCIA || producto.vigencia || "";
+  const sucursales = producto.SUCURSALES || producto.sucursales || "";
+  const gramaje = producto.GRAMAJE || producto.gramaje || "";
+  const promocion = producto.PROMOCION || producto.promocion || "";
 
   return (
     <div className="promo-wrapper">
-      <div className="promo-box">
+      <div className={`promo-box ${promocion ? "promo-box--with-promo" : ""}`}>
 
-        <h1 className="promo-title pos-promo-title">{producto.DESCRIPCION}</h1>
+        {/* SI HAY PROMOCION: Se muestra arriba, grande */}
+        {promocion && (
+          <div className="promo-super-title">
+            {promocion}
+          </div>
+        )}
 
-        <div className="promo-variedad pos-promo-variedad">
-          {producto.VARIEDAD}
+        {/* ENCABEZADO: Descripción */}
+        <div className="promo-header">
+          <h1 className="promo-title">{descripcion}</h1>
+          {variedad && <div className="promo-variedad">{variedad}</div>}
         </div>
 
-        <div className="promo-oferta pos-promo-oferta">
-          {producto.OFERTA}
+        {/* CENTRO: Oferta Gigante */}
+        <div className="promo-body">
+          <div className="promo-oferta">{oferta}</div>
         </div>
 
+        {/* PIE: Detalles alineados */}
         <div className="promo-footer">
-          <div className="promo-foot-item pos-promo-vigencia">
-            {producto.VIGENCIA}
+          <div className="promo-foot-item text-left">
+            <span className="label"></span> {vigencia}
           </div>
-          <div className="promo-foot-item pos-promo-sucursal">
-            {producto.SUCURSALES}
+          <div className="promo-foot-item text-center">
+            {sucursales}
           </div>
-          <div className="promo-foot-item pos-promo-gramaje">
-            {producto.GRAMAJE}
+          <div className="promo-foot-item text-right">
+            {gramaje}
           </div>
         </div>
-      </div>
-    </div>
+
+      </div >
+    </div >
   );
 }

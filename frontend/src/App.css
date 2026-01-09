@@ -7,84 +7,17 @@ body {
   background: #f2f1ec;
   font-family: "Inter", Arial, sans-serif;
   color: #262c26;
-}
-
-/* ===========================
-   LAYOUT GENERAL
-=========================== */
-.app-container {
-  padding: 30px;
-  min-width: 1200px;
-  margin: auto;
-}
-
-/* HEADER */
-.app-header {
-  background: #dd352a;
-  color: white;
-  padding: 18px 25px;
-  border-radius: 10px;
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 25px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-
-/* ===========================
-   SELECTOR DE SUCURSAL
-=========================== */
-.sucursal-box {
-  margin-bottom: 20px;
   display: flex;
-  align-items: center;
-  gap: 15px;
+  justify-content: center;
 }
 
-.sucursal-label {
-  font-weight: bold;
-  font-size: 15px;
-}
-
-.sucursal-select {
-  padding: 7px 12px;
-  border-radius: 6px;
-  border: 2px solid #dd352a;
-  background: white;
-  font-size: 15px;
-  cursor: pointer;
-}
-
-/* ===========================
-   TABLA DE PRODUCTOS
-=========================== */
-.products-table {
+#root {
+  max-width: 1920px;
   width: 100%;
-  border-collapse: collapse;
-  background: white;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
-}
-
-.products-table th {
-  background: #dd352a;
-  color: white;
-  padding: 12px;
-  font-size: 15px;
-}
-
-.products-table td {
-  padding: 10px;
-  border-bottom: 1px solid #e0e0e0;
-  font-size: 12px;
-}
-
-.products-table tr:hover {
-  background: rgba(221, 53, 42, 0.08);
 }
 
 /* ===========================
-   BOTONES
+   BOTONES BASE
 =========================== */
 
 .btn {
@@ -98,33 +31,191 @@ body {
   margin: 0 1px;
 }
 
-/* Editar */
-.btn-edit {
+/* ==========================================
+   ESTILOS ACTIVOS
+========================================== */
+
+/* Caja donde va todo el contenido */
+.container {
+  padding: 20px;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+/* Botón subir CSV */
+.upload-btn {
   background: #262c26;
   color: white;
 }
 
-.btn-edit:hover {
-  background: #000;
+.upload-btn:hover {
+  background: black;
 }
 
-/* Imprimir cartel */
-.btn-print {
-  background: #dd352a;
-  color: white;
+/* Botón editar */
+.btn.edit {
+  background: #262c26;
 }
 
-.btn-print:hover {
-  background: #b62821;
+.btn.edit:hover {
+  background: black;
 }
 
-/* Promo */
-.btn-promo {
-  background: #f2f1ec;
-  border: .8px solid #262c26;
-  color: #262c26;
+/* Botón guardar */
+.btn.save {
+  background: #28a745;
 }
 
-.btn-promo:hover {
-  background: #ddd;
+/* Botón cancelar */
+.btn.cancel {
+  background: #dc3545;
+}
+
+/* ==========================
+   Tabla editable (.product-table)
+========================================== */
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: visible;
+  /* IMPORTANTE para que se vean los dropdowns */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  text-align: left;
+}
+
+.product-table th,
+.product-table td {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.product-table tr:hover {
+  background: rgba(221, 53, 42, 0.08);
+}
+
+.product-table input {
+  width: 95%;
+  padding: 5px;
+  font-size: 13px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* ==========================
+   MODAL
+========================== */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+}
+
+.modal-content {
+  background: white;
+  padding: 22px;
+  width: 380px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content h3 {
+  margin-top: 0;
+  color: #dd352a;
+  font-weight: 600;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 9px;
+  margin: 8px 0;
+  border: 2px solid #dd352a;
+  border-radius: 8px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.actions {
+  margin-bottom: 10px;
+}
+
+
+/* ==========================
+   HEADER
+========================== */
+#carteleria {
+  margin-left: 20px;
+  font-size: 35pt;
+}
+
+#agregar-producto {
+  margin: 8px 5px;
+}
+
+/* ==========================
+   Menú desplegable (Acciones)
+========================== */
+.dropdown-wrapper {
+  position: relative;
+  display: inline-block;
+  z-index: auto;
+}
+
+.btn-menu {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0 5px;
+  color: #000;
+  font-weight: bold;
+}
+
+.btn-menu:hover {
+  color: #555;
+  background: none;
+}
+
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background: white;
+  min-width: 160px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
+  padding: 5px 0;
+  z-index: 1000;
+  border: 1px solid #eee;
+}
+
+.dropdown-menu button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 8px 15px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.dropdown-menu button:hover {
+  background: #f5f5f5;
+}
+
+.dropdown-menu a:hover {
+  background: #f5f5f5;
 }
