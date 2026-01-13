@@ -17,7 +17,7 @@ function App() {
           element={
             <div className="App">
               <div style={{ textAlign: "center", paddingTop: "10px" }}>
-                <img src="/logo_abastecedor.png" alt="Abastecedor" style={{ height: "120px", maxWidth: "100%", objectFit: "contain" }} />
+                <img src={`${process.env.PUBLIC_URL}/logo_abastecedor.png`} alt="Abastecedor" style={{ height: "120px", maxWidth: "100%", objectFit: "contain" }} />
               </div>
               <h1 id="carteleria">Cartelería</h1>
               <ProductList />
