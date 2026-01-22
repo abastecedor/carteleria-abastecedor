@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { fetchProducts, updateProduct, uploadCSV } from "../api";
 import { Snackbar, Alert, Dialog, DialogTitle, DialogContent, DialogActions, Button, TextField } from "@mui/material";
 import "../App.css";
@@ -351,6 +352,23 @@ export default function ProductList() {
             >
               🖨️ Descargar Todo PDF
             </a>
+
+            <Link
+              to="/print-queue-small"
+              target="_blank"
+              className="btn"
+              style={{
+                textDecoration: "none",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                marginLeft: "10px",
+                background: "#6f42c1",
+                color: "white"
+              }}
+            >
+              🏷️ Descargar Etiquetas
+            </Link>
           </div>
         )}
       </div>
@@ -448,7 +466,7 @@ export default function ProductList() {
                             🖨️ Imprimir A4
                           </a>
 
-                          <button onClick={() => window.open(`/print/${p._uniqueId || p.id}`, '_blank')}>
+                          <button onClick={() => window.open(`/print-label/${p._uniqueId || p.id}`, '_blank')}>
                             🏷️ Imprimir Etiqueta
                           </button>
 
@@ -608,6 +626,28 @@ export default function ProductList() {
         <DialogTitle>Seguridad</DialogTitle>
         <DialogContent>
           <p>Esta acción requiere contraseña de administrador.</p>
+
+          {pendingAction === "CSV" && (
+            <div style={{
+              background: "#e3f2fd",
+              padding: "12px",
+              borderRadius: "6px",
+              marginBottom: "16px",
+              border: "1px solid #90caf9"
+            }}>
+              <p style={{ fontWeight: "bold", marginTop: 0, marginBottom: "8px", color: "#1976d2" }}>
+                ℹ️ Formato del archivo CSV:
+              </p>
+              <ul style={{ margin: 0, paddingLeft: "20px", fontSize: "13px", lineHeight: "1.6" }}>
+                <li>Debe tener encabezados en la primera fila</li>
+                <li>Columnas requeridas: <strong>codigo, descripcion, promocion</strong></li>
+                <li>Columnas opcionales: gramaje, oferta, sucursales, variedad, vigencia</li>
+                <li>Separadores aceptados: coma (,) o punto y coma (;)</li>
+                <li>Los encabezados pueden llevar acentos o mayúsculas (se normalizan automáticamente)</li>
+              </ul>
+            </div>
+          )}
+
           <TextField
             autoFocus
             margin="dense"

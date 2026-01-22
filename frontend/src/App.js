@@ -4,7 +4,9 @@ import "./App.css";
 
 import ProductList from "./pages/ProductList.jsx";
 import PromoPrintPage from "./pages/PromoPrintPage.jsx";
+import PromoLabelPage from "./pages/PromoLabelPage.jsx";
 import PrintQueuePage from "./pages/PrintQueuePage.jsx";
+import SmallLabelQueuePage from "./pages/SmallLabelQueuePage.jsx";
 
 function App() {
   return (
@@ -27,9 +29,11 @@ function App() {
 
         {/* IMPRESIÓN MASIVA */}
         <Route path="/print-queue" element={<PrintQueuePage />} />
+        <Route path="/print-queue-small" element={<SmallLabelQueuePage />} />
 
         {/* IMPRESIÓN A4 */}
         <Route path="/print/:id" element={<PromoPrintPage />} />
+        <Route path="/print-label/:id" element={<PromoLabelPage />} />
 
       </Routes>
     </BrowserRouter>

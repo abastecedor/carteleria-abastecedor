@@ -1,0 +1,93 @@
+/* src/components/small-label.css */
+.label-a4-container {
+    width: 210mm;
+    height: 297mm;
+    background: white;
+    padding: 10mm;
+    /* Un poco de margen en la hoja */
+    box-sizing: border-box;
+}
+
+.label-container {
+    width: 120mm;
+    height: 40mm;
+    border: 1px solid black;
+    /* Borde opcional para referencia de corte, el usuario lo pidió? La imagen tiene borde. */
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 5px 10px;
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+}
+
+/* Header: Descripción */
+.label-header {
+    text-align: center;
+    font-size: 14px;
+    /* Ajustar según longitud */
+    font-weight: bold;
+    margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+}
+
+/* Cuerpo principal flex row */
+.label-body {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Izquierda: Promoción y Vigencia */
+.label-left {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 15px;
+}
+
+.label-promocion {
+    font-size: 30px;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+.label-vigencia {
+    font-size: 10px;
+    margin-top: 5px;
+}
+
+/* Derecha: Oferta y detalles */
+.label-right {
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    /* Alineado a la derecha según imagen */
+    justify-content: center;
+    text-align: right;
+}
+
+.label-oferta {
+    font-size: 48px;
+    font-weight: 900;
+    line-height: 0.9;
+}
+
+.label-details {
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.label-legal {
+    font-size: 8px;
+    margin-top: 2px;
+}
